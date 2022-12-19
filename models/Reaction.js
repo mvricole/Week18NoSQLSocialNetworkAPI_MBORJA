@@ -2,7 +2,7 @@ const { Schema, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 // Sets up the formatting of the data on the Schema. 
-// Requires the reaction to have actual valid text input, require valid username 
+// Requires the reaction to have valid text input, also requires valid username 
 const reactionSchema = new Schema(
   {
     reactionId: {
