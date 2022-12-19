@@ -70,7 +70,8 @@ const userController = {
       });
   },
 
-  // addFriend to your friend list 
+  // addFriend to your friend list using findOneAndUpdate
+  // From there, it uses $addToSet to add friend to your friends list. 
   addFriend(req, res) {
     User.findOneAndUpdate({ _id: req.params.userId }, { $addToSet: { friends: req.params.friendId } }, { new: true })
       .then((dbUserData) => {
@@ -84,7 +85,7 @@ const userController = {
         res.status(500).json(err);
       });
   },
-  // removeFriend from your friend list
+  // removeFriend from your friend list using $pull, but it must be a preexisting friend
   removeFriend(req, res) {
     User.findOneAndUpdate({ _id: req.params.userId }, { $pull: { friends: req.params.friendId } }, { new: true })
       .then((dbUserData) => {
