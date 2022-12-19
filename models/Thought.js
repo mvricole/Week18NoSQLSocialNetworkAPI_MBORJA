@@ -1,7 +1,7 @@
 // Declaring constants which require mongoose, also connects to our reaction schema. Data pulled from reaction schema will render as a thought and a total of reactions. 
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
-const dateFormat = require('../utils/dateFormat');
+// const dateFormat = require('../utils/dateFormat');
 
 const thoughtSchema = new Schema(
   {
@@ -15,7 +15,7 @@ const thoughtSchema = new Schema(
       type: Date,
       default: Date.now,
       // Get method to provide user with a timestamp on their thought.
-      get: timestamp => dateFormat(timestamp)
+      // get: timestamp => dateFormat(timestamp)
     },
     username: {
       type: String,
